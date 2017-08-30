@@ -1,0 +1,22 @@
+<div class="minion-component"
+     [@minionState]="state"
+     [style.z-index]="zIndex">
+    <div class="panel minion my-minion"
+        (mouseover)="target($event)"
+        (mouseleave)="unTarget($event)"
+        [ngClass]="{'is-targeted':isTargeted, 'is-valid-target':isValidTarget}">
+        <img class="panel-image" src="https://material.angular.io/assets/img/examples/shiba2.jpg" />
+        <div class="panel-content">
+            <p>{{minion.name}}</p>
+            <div class="minion-props">
+                <div class="minion-prop" *ngIf="minion.stats.isFrozen"><md-icon>ac_unit</md-icon></div>
+                <div class="minion-prop" *ngIf="minion.stats.isFire"><md-icon>whatshot</md-icon></div>
+            </div>
+            <div class="minion-stats">
+                <div class="minion-attack"><md-icon>restaurant_menu</md-icon>{{minion.stats.attack}}</div>
+                <div class="minion-health"><md-icon>opacity</md-icon>{{minion.stats.hp}}</div>
+            </div>
+        </div>
+    </div>
+    <hs-target *ngIf="!minion.stats.isEnemy" [actor]="minion"></hs-target>
+</div>

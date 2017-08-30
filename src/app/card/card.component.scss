@@ -1,0 +1,68 @@
+@import '../../assets/scss/_vars';
+
+.card {
+    position: relative;
+    vertical-align: top;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-between;
+    min-width: 264px;
+    min-height: 48px;
+    background-color: white;
+    padding: 0 16px;
+
+    > .card-avatar {
+        width: 48px;
+        padding: 4px 4px 4px 0;
+
+        > img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+    }
+    > .card-name {
+        flex-grow: 1;   
+        width: auto;
+        padding: 4px 0;
+        
+        > p {
+            margin: 0;
+        }
+    }
+    > .card-cost {
+        width: 20px;
+        padding: 12px 0;
+        
+        > p {
+            height: 16px;
+            width: 16px;
+            line-height: 16px;
+            border-radius: 50%;
+            margin: 0;
+            font-size: 12px;
+            color: white;
+            background-color: gray;
+            text-align: center;
+        }
+        &.valid-cost > p {
+            background-color: hotpink;
+        }
+    }
+    
+    &.is-valid {
+        
+    }
+    
+    &.is-targeting {
+        background-color: lightgray;    // same as hover-color
+    }
+}
+hs-target {
+    transition: 200ms left;
+}
+hs-target.is-targeting {
+    position: absolute;
+    left: $card-menu-width;
+}

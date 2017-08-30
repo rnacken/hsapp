@@ -1,0 +1,28 @@
+<div class="game-container" *ngIf="(_state.user$ | async)?.uid">
+    <div *ngIf="_state.gameStarted">
+        <hs-board></hs-board>
+    </div>
+     <div *ngIf="!_state.gameStarted">
+         <ul>
+             <li *ngFor="let player of _state.players">
+                <span *ngIf="player.playing">{{player.name}} (fighting)</span>
+                <a href="#" *ngIf="!player.playing && player?.uid !== (_state.user$ | async)?.uid" (click)="challenge(player)">
+                    {{player.name}}
+                    <span *ngIf="player.challenging === _state.myPlayer?.$key"> (challenging you)</span>
+                    <span *ngIf="_state.myPlayer?.challenging === player.$key"> (you challenge)</span>
+                </a>
+
+                <span *ngIf="player?.uid == (_state.user$ | async)?.uid">{{player.name}} (you)</span>
+            </li>
+         </ul>
+    </div>
+    <button (click)="logout(_state.myPlayer)">Logout</button>
+</div>
+
+<div class="login-container" *ngIf="!(_state.user$ | async)?.uid">
+     <input type="text" [(ngModel)]="_state.username" placeholder="your name" />
+    <button (click)="registerAndLogin(_state.username)">Anonymous Login</button>
+</div>
+<br />
+{{_state.myPlayer | json}}<br>
+{{_state.myTurn}}

@@ -1,0 +1,21 @@
+@import "../../assets/scss/_vars";
+
+.minion-space-content {
+    display: inline-block;
+    vertical-align: top;
+    width: $minion-space-width;
+    height: $minion-space-height;
+    transition: all 200ms;
+    
+    &.is-targeted {
+        color: red;
+    }
+    &.is-valid-target {
+        color: blue;
+        width: $minion-space-width-expanded;
+    }
+    &.minion-space-first,
+    &.minion-space-last {
+        width: 100%;
+    }
+}

@@ -1,0 +1,14 @@
+<div class="card" 
+    [ngClass]="{'is-valid':card.isValidActor, 'is-targeting':isTargeting}">
+    <div class="card-avatar">
+        <img [src]="card.stats.image" />
+    </div>
+    <div class="card-name">
+        <p>{{card.stats.cardName}}</p>
+        <p><small>{{card.subType}}</small></p>
+    </div>
+    <div class="card-cost" [ngClass]="{'valid-cost':card.stats.manaCost<=_actorService.myMana}">
+        <p>{{card.stats.manaCost}}</p>
+    </div>
+    <hs-target *ngIf="card.isValidActor" [actor]="card" [ngClass]="{'is-targeting':isTargeting}"></hs-target>
+</div>

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "angularfire2": "file:node_modules/angularfire2/angularfire2.d.ts"
+  }
+}

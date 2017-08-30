@@ -1,0 +1,9 @@
+<button class="hero-power-button"
+    md-fab [disabled]="heroPowerUsed"
+    (mouseover)="target($event)"
+    (mouseleave)="unTarget($event)"
+    [ngClass]="{'is-targeted':isTargeted, 'is-valid-target':isValidTarget}"
+    [style.z-index]="zIndex">
+    <md-icon>check circle</md-icon>
+    <hs-target [actor]="heroPower"></hs-target>
+</button>

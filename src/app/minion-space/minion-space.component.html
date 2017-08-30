@@ -1,0 +1,13 @@
+<div class="minion-space-content" 
+    [@minionSpaceState]="state"
+    (mouseover)="target($event)"
+    (mouseleave)="unTarget($event)"
+    [ngClass]="{
+        'is-targeted':isTargeted, 
+        'is-valid-target':isValidTarget,
+        'minion-space-first':space.pos===0,
+        'minion-space-last':space.pos===space.total-1,
+        'minion-space-me':space.isEnemy===false,
+        'minion-space-enemy':space.isEnemy===true
+    }">
+</div>

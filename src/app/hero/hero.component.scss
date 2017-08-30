@@ -1,0 +1,10 @@
+.hero {
+    position: relative;
+    width: 180px;
+    height: 50px;
+    z-index: 5;
+    
+    &.is-valid-target {
+        outline: 2px solid green;
+    }
+}

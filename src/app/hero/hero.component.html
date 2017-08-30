@@ -1,0 +1,10 @@
+<div class="hero my-hero"
+        [style.z-index]="zIndex"
+        (mouseover)="target($event)"
+        (mouseleave)="unTarget($event)"
+        [ngClass]="{'is-targeted':isTargeted, 'is-valid-target':isValidTarget}">
+    <p>Name: {{hero.name}} <small>(<md-icon>opacity</md-icon>{{hero.stats.hp}})</small>
+            <span *ngIf="hero.effect.type!==undefined && hero.effect.type=='damage'"><md-icon class="rotate-180">restaurant_menu</md-icon>{{hero.effect.amount}}</span>
+        </p>
+    <hs-target *ngIf="!hero.stats.isEnemy" [actor]="hero"></hs-target>
+</div>

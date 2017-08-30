@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/scss/_vars';
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic);
+
+* {
+    user-select: none;  // no selection needed in games
+    border-sizing: border-box;  // calculate widths/etc with paddings/borders/etc
+}
+html {
+    
+}
+body {
+    font-family: 'Roboto', "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    background-color: lightgray;
+    margin: 0;
+    padding: 0;
+}
+
+// type
+small {
+    color: gray;
+}
+
+
+// overriding material-styles;
+.mat-menu-item {
+    overflow: auto;
+}
+
+// new styles
+.panel {
+    position: relative;
+    display: block;
+    background-color: white;
+    will-change: transform;
+    border-radius: 2px;
+    box-shadow: $shadow
+}
+.panel-image {
+    width: 100%;
+    height: auto;
+}
+.panel-content {
+    margin: 24px;
+}
+
+
+

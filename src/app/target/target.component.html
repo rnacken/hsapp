@@ -1,0 +1,17 @@
+<div id="crosshairs" 
+    class="crosshairs" 
+    (panstart)="dragStart($event)"
+    (panmove)="drag($event)"
+    (panend)="release($event)"
+    (click)="click($event)"
+    [style.top]="posY + 'px'"
+    [style.left]="posX + 'px'"
+    [style.pointerEvents]="pointerEvents"
+    [ngClass]="{'is-dragging': isDragging, 'is-card': actor.type==='card'}">
+     
+    <div class="drag-card" *ngIf="actor.type==='card' && isDragging">
+        <div class="card-avatar">
+           <img [src]="actor.stats.image" />
+        </div> 
+    </div>
+</div>

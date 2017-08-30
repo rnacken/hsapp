@@ -1,0 +1,6 @@
+<div class="board-target"
+     (mouseover)="target($event)"
+     (mouseleave)="unTarget($event)"
+     [style.pointerEvents]="pointerEvents"
+     [ngClass]="{'is-targeted':isTargeted, 'is-valid-target':isValidTarget}">
+</div>

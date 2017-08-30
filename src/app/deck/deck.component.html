@@ -1,0 +1,20 @@
+
+<button md-button (click)="toggleCardsMenu(true)"><md-icon>menu</md-icon> Cards ({{_actorService.myCardsInHand.length}})</button>
+<ul class="cards-menu" 
+    [@menuState]="menuState">
+    <li class="cards-menu-item disabled" 
+        [ngClass]="{'fatigue-mode':_actorService.myCards.length<=0}">
+        <div>{{_actorService.myCards.length}} cards in deck
+        <span><small>(fatigue mode!)</small></span>
+        </div>
+    </li>
+    <li class="cards-menu-divider"></li>
+    <li class="cards-menu-item" 
+        *ngFor="let card of _actorService.myCardsInHand">
+        <hs-card [actor]="card"></hs-card>
+    </li>
+    <li class="cards-menu-divider"></li>
+    <li class="cards-menu-item">
+        <div class="cards-menu-link" (click)="toggleCardsMenu(false)">Close cards</div>
+    </li>
+</ul>

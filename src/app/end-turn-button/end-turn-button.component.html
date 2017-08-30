@@ -1,0 +1,10 @@
+
+<button 
+    class="end-turn-button"
+    md-raised-button 
+    (click)="endTurn()"
+    [disabled]="!_stateService.myTurn">
+    <md-icon>autorenew</md-icon> 
+    <span *ngIf="_stateService.myTurn"> End turn</span>
+    <span *ngIf="!_stateService.myTurn"> Enemy turn</span>
+</button>

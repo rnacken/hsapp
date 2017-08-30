@@ -1,0 +1,29 @@
+@import '../../assets/scss/_vars';
+
+.board {
+}
+.minions-board {
+    position: relative;
+    
+}
+.my-minions,
+.enemy-minions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;    
+}
+
+.board-element {
+    height: $minion-space-height;
+
+    &.board-element-first,
+    &.board-element-last {
+        flex-grow: 1;   // fill up board on left/right
+        width: auto;
+    }
+}
+

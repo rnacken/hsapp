@@ -1,0 +1,71 @@
+<div class="board"
+     [style.cursor]="cursorStyle">
+    
+    <div class="hero-toolbar">
+        <div class="sub-toolbar">
+            <span>{{_stateService.myEnemy?.name}} (enemy)</span>
+            <span>social</span>
+        </div>
+        <div class="toolbar-menu">
+            <hs-deck [cards]="myCards"></hs-deck>
+        </div>
+    </div>
+
+   
+    <div class="mana">mana: {{_actorService.myMana}}/{{_actorService.myManaMax}}</div>
+
+    <hs-hero [actor]="myHero"></hs-hero>
+    <hs-hero-power-button [actor]="myHeroPower"></hs-hero-power-button>
+    <div class="minions-board">
+        <ul class="my-minions">
+            <li class="board-element board-element-last">
+                <hs-minion-space 
+                    [space]="{isEnemy: false, pos: 0, total: _actorService.myMinions.length+1}">
+                </hs-minion-space>
+            </li>
+            <li class="board-element" 
+                *ngFor="let minion of _actorService.myMinions, let i = index">
+                <hs-minion *ngIf="minion!==undefined && minion.id!==undefined && minion.type==='minion'"
+                    [minion]="minion">
+                </hs-minion>
+                <hs-minion-space 
+                    *ngIf="i != _actorService.myMinions.length - 1"
+                    [nextMinion]="_actorService.myMinions[i+1] || false"
+                    [minion]="minion" 
+                    [space]="{isEnemy: false, pos: i+1, total: _actorService.myMinions.length+1}">
+                </hs-minion-space>
+            </li>
+            <li class="board-element board-element-last">
+                <hs-minion-space 
+                    [space]="{isEnemy: false, pos: _actorService.myMinions.length, total: _actorService.myMinions.length+1}">
+                </hs-minion-space>
+            </li>
+        </ul>
+        <ul class="enemy-minions">
+            <li class="board-element board-element-last">
+                <hs-minion-space 
+                    [space]="{isEnemy: true, pos: 0, total: _actorService.enemyMinions.length+1}">
+                </hs-minion-space>
+            </li>
+            <li class="board-element" 
+                *ngFor="let minion of _actorService.enemyMinions, let i = index">
+                <hs-minion *ngIf="minion!==undefined && minion.id!==undefined && minion.type==='minion'"
+                    [minion]="minion">
+                </hs-minion>
+                <hs-minion-space 
+                    *ngIf="i != _actorService.enemyMinions.length - 1"
+                    [minion]="minion" 
+                    [space]="{isEnemy: true, pos: i+1, total: _actorService.enemyMinions.length+1}">
+                </hs-minion-space>
+            </li>
+            <li class="board-element board-element-last">
+                <hs-minion-space 
+                    [space]="{isEnemy: true, pos: _actorService.enemyMinions.length, total: _actorService.enemyMinions.length+1}">
+                </hs-minion-space>
+            </li>
+        </ul>
+        <hs-board-target></hs-board-target>
+        <hs-end-turn-button></hs-end-turn-button>
+    </div>
+    <hs-hero [actor]="enemyHero"></hs-hero>
+</div>
