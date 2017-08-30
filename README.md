@@ -2,6 +2,8 @@
 
 This project will be a simple clone of the Blizzard game Hearthstone. This will be meant as a showcase for my Angular (4) skills. The design and layout will be based on Google's Material design standards.
 
+Currently, the project is not in Beta yet. I'm working on connecting Firebase to the app, to allow for 2 player connections.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
 
 ## Development server
